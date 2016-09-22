@@ -1,1 +1,2 @@
 C:\Users\Ashton\Documents\GitHub\Groupproject\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+\\Mac\Home\Documents\Visual Studio 2013\Projects\GroupDataStructures\Groupproject\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config

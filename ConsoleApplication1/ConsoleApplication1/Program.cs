@@ -20,6 +20,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             Console.WriteLine("what's up");
+            Console.WriteLine("1. Stack \n 2. Queue \n 3. Dictionary \n 4. Exit");
         }
     }
 }

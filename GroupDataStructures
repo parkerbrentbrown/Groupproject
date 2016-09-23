@@ -183,6 +183,16 @@ namespace ConsoleApplication1
                         /****************************************************************************************************************************/
                         while (menuchoice != 7)
                         {
+                            //Declare variables
+                            string sUserResponse; 
+                            int iUserResponse;
+                            int iCount = 0;
+                            int iCounter = 0;
+                            
+                
+                            //Create Dictionary object
+                            Dictionary<string, int> myDictionary = new Dictionary<string,int>();
+                        
                             menuchoice = 0;
                             Console.WriteLine("DICTIONARY MENU");
                             Console.WriteLine("Please enter the number that you want to do:");
@@ -211,22 +221,70 @@ namespace ConsoleApplication1
                             switch (menuchoice)
                             {
                                 case 1:
-                                    Console.WriteLine("Adding one item......");
+                                    //Prompt user for them to enter in a string and record the response
+                                    Console.WriteLine("\nPlease enter a string");
+                                    sUserResponse = Console.ReadLine();
+                
+                                    //Add the response to the myDictionary object along with a value
+                                    myDictionary.Add(sUserResponse, iCount++);
                                     break;
                                 case 2:
-                                    Console.WriteLine("Adding Huge List of Items......");
+                                    //Clear all of the contents of the dictionary
+                                    myDictionary.Clear();
+                
+                                    //Load up each dictionary item up to 2000
+                                    for (iCount = 0; iCount <= 2000; iCount++)
+                                    {
+                                        myDictionary.Add("New Entry " + iCount, iCount);
+                                    }
+                
+                                    //Reset the iCount back to 0 
+                                    iCount = 0;
                                     break;
                                 case 3:
-                                    Console.WriteLine("Display........");
+                                    //Display the contents of the dictionary
+                                    Console.WriteLine("\nThis is the contents of the Dictionary");
+                
+                                    foreach (KeyValuePair<string, int> entry in myDictionary)
+                                    {
+                                        Console.WriteLine(entry.Key.PadRight(20, ' ') + entry.Value);
+                                    }
+                                    Console.WriteLine();
                                     break;
                                 case 4:
-                                    Console.WriteLine("Delete.........");
+                                    //Prompt for user input of what they want to delete from the dictionary
+                                    Console.WriteLine("\nWhat would you like to Delete from the Dictionary? \nHere is the List: \n");
+                
+                                    //Display the dictionary so they can see their options
+                                    foreach (KeyValuePair<string, int> entry in myDictionary)
+                                    {
+                                        Console.WriteLine(entry.Key);
+                                    }
+                
+                                    //Record the user response and then delete the request item from the Dictionary
+                                    Console.WriteLine();
+                                    sUserResponse = Console.ReadLine();
+                
+                                    myDictionary.Remove(sUserResponse);
+
                                     break;
                                 case 5:
-                                    Console.WriteLine("Clear........");
+                                    //Clear the whole dictionary
+                                    myDictionary.Clear();
                                     break;
                                 case 6:
-                                    Console.WriteLine("Search........");
+                                    //Prompt the user for what string they want to look for.
+                                    Console.WriteLine("\nPlease enter the string you are searching for: ");
+                                    sUserResponse = Console.ReadLine();
+                
+                                    //Display the results of the search
+                                    if (myDictionary.ContainsKey(sUserResponse))
+                                    {
+                                        Console.WriteLine("\nYou found " + sUserResponse + "! Here is the value: " + myDictionary[sUserResponse] + "\n");
+                                    }
+                                    else
+                                        Console.WriteLine("\nString not found!");
+                                    }
                                     break;
                                 case 7:
                                     Console.WriteLine("Going back to Main Menu.......");

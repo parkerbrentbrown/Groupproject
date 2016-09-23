@@ -16,8 +16,10 @@ namespace ConsoleApplication1
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+            Dictionary<string, int> myDictionary = new Dictionary<string, int>();
             bool error = true;
             int menuchoice = 0;
             /****************************************************************************************************************************/
@@ -190,8 +192,7 @@ namespace ConsoleApplication1
                             int iCounter = 0;
                             
                 
-                            //Create Dictionary object
-                            Dictionary<string, int> myDictionary = new Dictionary<string,int>();
+                         
                         
                             menuchoice = 0;
                             Console.WriteLine("DICTIONARY MENU");
@@ -283,6 +284,7 @@ namespace ConsoleApplication1
                                         Console.WriteLine("\nYou found " + sUserResponse + "! Here is the value: " + myDictionary[sUserResponse] + "\n");
                                     }
                                     else
+                                    {
                                         Console.WriteLine("\nString not found!");
                                     }
                                     break;
@@ -306,3 +308,4 @@ namespace ConsoleApplication1
             }
         }
     }
+

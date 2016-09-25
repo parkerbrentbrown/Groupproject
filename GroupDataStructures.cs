@@ -151,26 +151,78 @@ namespace ConsoleApplication1
                             switch (menuchoice)
                             {
                                 case 1:
-                                    Console.WriteLine("Adding one item......");
+                                    //Add one item to Queue
+                                    Console.WriteLine("Enter a name or something.");
+                                    string iInput = Console.ReadLine();
+                                    myQueue.Enqueue(iInput);
                                     break;
                                 case 2:
-                                    Console.WriteLine("Adding Huge List of Items......");
+                                    //Add Huge List of Items to Queue
+                                    myQueue.Clear();
+                                    int iCount = 0;
+                                    while (iCount < 2000)
+                                    {
+                                        myQueue.Enqueue("New Entry " + iCount);
+                                        iCount++;
+                                    }
                                     break;
                                 case 3:
-                                    Console.WriteLine("Display........");
+                                    //Display Queue
+                                    foreach (string value in myQueue)
+                                    {
+                                        Console.WriteLine(value);
+                                    }
                                     break;
                                 case 4:
-                                    Console.WriteLine("Delete.........");
+                                    //Delete from Queue
+                                    Console.WriteLine("Which queue item do you want to delete?");
+                                    int iQueueDelete = 0;
+                                    try
+                                    {
+                                        iQueueDelete = int.Parse(Console.ReadLine());
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("Invalid Entry");
+                                        Console.WriteLine("Please enter a number from your queue.");
+                                    }
+                                    List<string> listOfWhatWontBeDeletedFromQueue = new List<string>();
+                                    int iListCount = 1;
+                                    while (iListCount < iQueueDelete)
+                                    {
+                                        listOfWhatWontBeDeletedFromQueue.Add(myQueue.Dequeue());
+                                        iListCount++;
+                                    }
+                                    myQueue.Dequeue();
+                                    foreach (string value in listOfWhatWontBeDeletedFromQueue)
+                                    {
+                                        myQueue.Enqueue(value);
+                                    }
                                     break;
                                 case 5:
-                                    Console.WriteLine("Clear........");
+                                    //Clear Queue
+                                    myQueue.Clear();
                                     break;
                                 case 6:
-                                    Console.WriteLine("Search........");
+                                    //Search Queue
+                                    Console.WriteLine("What item would you like to see if the queue contains?");
+                                    string iQueueSearch = Console.ReadLine();
+                                    System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                                    sw.Start();
+                                    if (myQueue.Contains(iQueueSearch))
+                                    {
+                                        Console.WriteLine("Yes, the queue had that.");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("No, the queue didn't have that.");
+                                    }
+                                    sw.Start();
+                                    Console.WriteLine("It took " + sw.ElapsedMilliseconds + " milliseconds to figure that out.");
                                     break;
                                 case 7:
-                                    Console.WriteLine("Going back to Main Menu.......");
-                                    break;  //go to main menu
+                                    //Return to Main Menu
+                                    break;
                                 default:
                                     Console.WriteLine("Sorry, invalid selection");
                                     break;

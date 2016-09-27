@@ -29,7 +29,7 @@ namespace ConsoleApplication1
             Stack<string> stkMyStack = new Stack<string>();
             Queue<string> myQueue = new Queue<string>();
             Dictionary<string, int> myDictionary = new Dictionary<string, int>();
-
+            int iCount = 0;
             bool error = true;
             int menuchoice = 0;
             /****************************************************************************************************************************/
@@ -193,13 +193,13 @@ namespace ConsoleApplication1
                                                 sw.Stop();
                                                 Console.WriteLine("It took " + sw.Elapsed + " seconds to complete this search.");
                                             }
-                                           
+
 
                                         }
-                                            if (!(stkMyStack.Contains(sSearch)))
-                                            {
-                                                Console.WriteLine("We could not find that item.");
-                                            }
+                                        if (!(stkMyStack.Contains(sSearch)))
+                                        {
+                                            Console.WriteLine("We could not find that item.");
+                                        }
                                     }
                                     else
                                     {
@@ -268,7 +268,7 @@ namespace ConsoleApplication1
                                 case 2:
                                     //Add Huge List of Items to Queue
                                     myQueue.Clear();
-                                    int iCount = 1;
+                                    iCount = 1;
                                     while (iCount <= 2000)
                                     {
                                         myQueue.Enqueue("New Entry " + iCount);
@@ -384,7 +384,7 @@ namespace ConsoleApplication1
                             //Declare variables
                             string sUserResponse;
                             int iUserResponse;
-                            int iCount = 0;
+                            
                             int iCounter = 0;
 
                             //Display Dictionary menu

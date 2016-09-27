@@ -123,18 +123,18 @@ namespace ConsoleApplication1
 
                                 case 3:
                                     //Display stack
-                                        if(stkMyStack.Count() != 0)
-                                        { 
-                                            foreach (string value in stkMyStack)
-                                            {
-                                                Console.WriteLine(value);
-                                            }
-                                        }
-                                        else
+                                    if (stkMyStack.Count() != 0)
+                                    {
+                                        foreach (string value in stkMyStack)
                                         {
-                                            Console.WriteLine("Your stack is empty. Please enter a valid entry into the stack.");
+                                            Console.WriteLine(value);
                                         }
-                                    
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Your stack is empty. Please enter a valid entry into the stack.");
+                                    }
+
                                     break;
 
                                 case 4:
@@ -163,7 +163,7 @@ namespace ConsoleApplication1
                                         }
                                     }
                                     else
-                                    {   
+                                    {
                                         //Display if the stack is empty
                                         Console.WriteLine("The stack is empty. Please enter an item into the stack before deleting.");
                                     }
@@ -193,12 +193,13 @@ namespace ConsoleApplication1
                                                 sw.Stop();
                                                 Console.WriteLine("It took " + sw.Elapsed + " seconds to complete this search.");
                                             }
-                                            else
+                                           
+
+                                        }
+                                            if (!(stkMyStack.Contains(sSearch)))
                                             {
                                                 Console.WriteLine("We could not find that item.");
                                             }
-
-                                        }
                                     }
                                     else
                                     {

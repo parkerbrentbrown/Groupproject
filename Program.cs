@@ -189,7 +189,7 @@ namespace ConsoleApplication1
                                         {
                                             if (stkMyStack.ElementAt(i).Equals(sSearch))
                                             {
-                                                Console.WriteLine(stkMyStack.ElementAt(i));
+                                                Console.WriteLine("This item was found");
                                                 sw.Stop();
                                                 Console.WriteLine("It took " + sw.Elapsed + " seconds to complete this search.");
                                             }
